@@ -12,7 +12,13 @@ public class Shooting : MonoBehaviour
     //public float fireRate =100f;
     public float nextfire = 0f;
 
-       
+    public ObjectPooler bulletPooler;
+
+    void Start()
+    {
+        bulletPooler = this.GetComponent<ObjectPooler>();
+    }
+
     void Update()
     {
         Vector2 shootVector = new Vector2(CrossPlatformInputManager.GetAxis("Horizontal_2"), CrossPlatformInputManager.GetAxis("Vertical_2"));
@@ -23,12 +29,23 @@ public class Shooting : MonoBehaviour
         }
     } 
 
-    void Shoot()
-    {
-        nextfire = Time.time + 1/currentWeapon.fireRate;
-        GameObject bullet = Instantiate(currentWeapon.bulletPrefab, firePoint.position,firePoint.rotation);
-        Rigidbody2D rb =  bullet.GetComponent<Rigidbody2D>();
-        rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
-    }
 
+    //Bullet Generator
+    void Shoot()
+    {   
+        nextfire = Time.time + 1/currentWeapon.fireRate;
+        //Getting a Bullet object from ObjectPooler and assiging it to "newBullet"
+        GameObject newBullet = (GameObject)bulletPooler.GetPooledObject();
+        if (newBullet != null)
+        {
+            //Assiging the position of the bullet
+            newBullet.transform.position = firePoint.position;
+            newBullet.transform.rotation = Quaternion.identity;
+            Rigidbody2D rb =  newBullet.GetComponent<Rigidbody2D>();
+
+            //Enabling Gameobject and assigning force
+            newBullet.SetActive(true);
+            rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
+        }
+    }
 }

@@ -34,9 +34,20 @@ public class PlayerMovement : MonoBehaviour
         {
             float angle = Mathf.Atan2(lookVector.y, lookVector.x) * Mathf.Rad2Deg;            
             player.rotation = angle;
-        }
-        
-        
-               
+        }        
+    }
+
+    void Update()
+    {
+        player.velocity = new Vector3(0, 0, moveForce);
+    }
+
+    //Movement with Arrows
+    void HandleMovementInput () {
+        float _horizontal = Input.GetAxis("Horizontal");
+        float _vertical = Input.GetAxis("Vertical"); 
+
+        Vector3 _movement = new Vector3(_horizontal, 0, _vertical);
+        transform.Translate(_movement * moveForce * Time.deltaTime,Space.World);
     }
 }

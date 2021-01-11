@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyGenerator : MonoBehaviour
 {
 
-    public GameObject enemyPooler;
     public ObjectPooler objectPooler;
 
     //Enemy respawn time
@@ -22,7 +21,7 @@ public class EnemyGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        objectPooler = enemyPooler.GetComponent<ObjectPooler>();
+        objectPooler = this.GetComponent<ObjectPooler>();
 
         //Random spawning time for enemy
         randomNums = new float[] { 3.0f, 4.0f, 5.0f, 6.0f, 4.0f, 5.0f, 6.0f };

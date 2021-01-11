@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1924656621714745620}
   - component: {fileID: 3013713121553333049}
   - component: {fileID: 6131611151734471140}
+  - component: {fileID: -3587746136541529082}
   m_Layer: 0
   m_Name: M484BulletCollection2_0
   m_TagString: Untagged
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7120348067226475989, guid: 30f644c3dc9a09246922c38eab3db2aa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -131,3 +132,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4375, y: 0.9375}
   m_EdgeRadius: 0
+--- !u!114 &-3587746136541529082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083605779540772580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1384d2fe7e24e054bafa82a93fe4f2ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
