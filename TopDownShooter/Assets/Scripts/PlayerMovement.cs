@@ -40,6 +40,9 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         player.velocity = new Vector3(0, 0, moveForce);
+
+        //Bounds
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -16.89f, 16.89f), Mathf.Clamp(transform.position.y, -9.13f, 9.13f)); 
     }
 
     //Movement with Arrows
