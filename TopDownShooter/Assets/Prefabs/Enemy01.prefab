@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1382740611826617943}
   m_Layer: 0
   m_Name: Enemy01
-  m_TagString: Untagged
+  m_TagString: Enemy01
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,6 +100,8 @@ MonoBehaviour:
   movementSpeed: 2
   myRigidbody2D: {fileID: 0}
   rotateSpeed: 3
+  health: 100
+  DeathEffect: {fileID: 374926050331137041, guid: 966bfd7cd9d8ae74e98925f4fbca3fe7, type: 3}
 --- !u!50 &1382740611826617942
 Rigidbody2D:
   serializedVersion: 4
@@ -119,9 +121,8 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!58 &1382740611826617943
+  m_CollisionDetection: 1
+  m_Constraints: 0
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

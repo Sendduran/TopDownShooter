@@ -40,12 +40,17 @@ public class Shooting : MonoBehaviour
         {
             //Assiging the position of the bullet
             newBullet.transform.position = firePoint.position;
-            newBullet.transform.rotation = Quaternion.identity;
+            newBullet.transform.rotation = firePoint.rotation;
             Rigidbody2D rb =  newBullet.GetComponent<Rigidbody2D>();
 
             //Enabling Gameobject and assigning force
             newBullet.SetActive(true);
             rb.AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
         }
+    }
+
+    public int getWeaponDamage()
+    {
+        return currentWeapon.getDamage();
     }
 }

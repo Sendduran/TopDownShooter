@@ -7,7 +7,6 @@ public class Enemy01 : MonoBehaviour
     //Enemy movement speed
     [SerializeField]
     private float movementSpeed = 0.0f;
-
     //Enemy Rigidbody2D
     public Rigidbody2D myRigidbody2D;
     //rotate speed
@@ -18,6 +17,11 @@ public class Enemy01 : MonoBehaviour
     private Vector3 targetDirection;
     //rotate direction
     Vector3  rotateDirection;
+    //enemy health 
+    public int health = 100;
+    //game object animation
+    public GameObject DeathEffect;
+
 
 
     // Start is called before the first frame update
@@ -52,6 +56,18 @@ public class Enemy01 : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, angle + offset));
         //Roatate current game object to face the target using a slerp function which adds some smoothing to the move
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, RotationSpeed * Time.deltaTime);
+    }
+
+    public void TakeDamage(int damage) {
+        health -= damage;
+        if (health <= 0) {
+            Die();
+        }
+    }
+
+    void Die() {
+        Instantiate(DeathEffect, transform.position, Quaternion.identity);
+        this.gameObject.SetActive(false);
     }
 
 }
