@@ -48,10 +48,11 @@ public class EnemyGenerator : MonoBehaviour
         GameObject newEnemy = (GameObject)objectPooler.GetPooledObject();
         if (newEnemy != null)
         {
+            Enemy01 enemy = newEnemy.GetComponent<Enemy01>();
+            enemy.health = 100;
             //Assiging the position of the enemy as same as the generator
             newEnemy.transform.position = position;
             newEnemy.transform.rotation = Quaternion.identity;
-
             //Enabling Gameobject
             newEnemy.SetActive(true);
         }

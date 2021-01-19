@@ -59,8 +59,8 @@ public class Enemy01 : MonoBehaviour
     }
 
     public void TakeDamage(int damage) {
-        health -= damage;
-        if (health <= 0) {
+        this.health -= damage;
+        if (this.health <= 0) {
             Die();
         }
     }
@@ -68,6 +68,17 @@ public class Enemy01 : MonoBehaviour
     void Die() {
         Instantiate(DeathEffect, transform.position, Quaternion.identity);
         this.gameObject.SetActive(false);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        DamageHealth health = GameObject.Find("Player").GetComponent<DamageHealth>();
+        print(collision.gameObject.tag);
+
+        if (collision.gameObject.tag == "Player")
+        {
+            health.TakeDamage(20);
+        }
     }
 
 }
