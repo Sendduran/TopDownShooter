@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1382740611826617940}
   - component: {fileID: 1382740611826617941}
   - component: {fileID: 1382740611826617942}
-  - component: {fileID: -8483171580573000674}
+  - component: {fileID: 1382740611826617943}
   m_Layer: 0
   m_Name: Enemy01
   m_TagString: Enemy01
@@ -122,8 +122,8 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
---- !u!58 &-8483171580573000674
+  m_Constraints: 4
+--- !u!58 &1382740611826617943
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
