@@ -25,4 +25,18 @@ public class Bullet : MonoBehaviour
             }
         }
     }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log(collision.name);
+        Shooting shoot = GameObject.Find("Player").GetComponent<Shooting>();
+        Enemy01 enemy = collision.GetComponent<Enemy01>();
+
+        if (enemy != null)
+        {
+            enemy.TakeDamage(shoot.getWeaponDamage());
+            this.gameObject.SetActive(false);
+        }
+    }
+
 }

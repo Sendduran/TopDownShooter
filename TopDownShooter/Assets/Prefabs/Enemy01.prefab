@@ -100,6 +100,7 @@ MonoBehaviour:
   movementSpeed: 2
   myRigidbody2D: {fileID: 0}
   rotateSpeed: 3
+  health: 20
 --- !u!50 &1382740611826617942
 Rigidbody2D:
   serializedVersion: 4
@@ -131,7 +132,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

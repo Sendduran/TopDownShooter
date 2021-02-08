@@ -18,6 +18,10 @@ public class Enemy01 : MonoBehaviour
     private Vector3 targetDirection;
     //rotate direction
     Vector3  rotateDirection;
+    //enemy health 
+    public int health ;
+  /*  //game object animation
+    public GameObject DeathEffect;*/
 
 
     // Start is called before the first frame update
@@ -53,5 +57,31 @@ public class Enemy01 : MonoBehaviour
         //Roatate current game object to face the target using a slerp function which adds some smoothing to the move
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, RotationSpeed * Time.deltaTime);
     }
+
+    public void TakeDamage(int damage)
+    {
+        this.health -= damage;
+        if (this.health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+       /* Instantiate(DeathEffect, transform.position, Quaternion.identity);*/
+        this.gameObject.SetActive(false);
+    }
+
+/*    void OnTriggerEnter2D(Collider2D collision)
+    {
+        DamageHealth health = GameObject.Find("Player").GetComponent<DamageHealth>();
+        print(collision.gameObject.tag);
+
+        if (collision.gameObject.tag == "Player")
+        {
+            health.TakeDamage(20);
+        }
+    }*/
 
 }

@@ -11,4 +11,8 @@ public class Weapon : ScriptableObject
     public float fireRate = 1;
     public int damage = 20;
 
+        public int getDamage()
+    {
+        return damage;
+    }
 }
